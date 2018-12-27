@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd">
+
+    <!--配置shiro-->
+    <bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+        <!--注入安全管理器对象-->
+        <property name="securityManager" ref="securityManager"/>
+        <property name="loginUrl" value="/login.html"/> <!--登录页面-->
+        <property name="unauthorizedUrl" value="/error.html"/> <!--权限不足跳转-->
+
+        <property name="filterChainDefinitions">
+            <value>
+                <!--暂时全部放行-->
+                /** = anon
+            </value>
+        </property>
+
+    </bean>
+
+    <!--配置安全管理器对象-->
+    <bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+        <property name="realm" ref="examRealm"/>
+    </bean>
+
+    <!--自己的realm对象-->
+    <bean id="examRealm" class="com.school.realm.SchoolRealm">
+
+    </bean>
+
+
+</beans>

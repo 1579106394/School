@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 设置日志打印 -->
+    <settings>
+        <setting name="logImpl" value="SLF4J"/>
+        <!--<setting name="logImpl" value="STDOUT_LOGGING"/> 如果需要打印更详细的返回结果集，就启用这句-->
+    </settings>
+
+</configuration>
